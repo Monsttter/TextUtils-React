@@ -28,10 +28,11 @@ function App() {
 
   const toggleMode= ()=> {
     if(mode==="light"){
+      // console.log(1);
       setMode("dark");
-      document.body.style.backgroundColor= "#343a40";
+      document.body.style.backgroundColor= "#042743";
       showAlert("Dark mode has been enabled", "success");
-      document.title= "TextUtils - Dark mode";
+      // document.title= "TextUtils - Dark mode";
       // setInterval(()=>{
       //   document.title= "TextUtils is Amazing";
       // }, 1500);
@@ -43,7 +44,7 @@ function App() {
       setMode("light");
       document.body.style.backgroundColor= "white";
       showAlert("Light mode has been enabled", "success");
-      document.title= "TextUtils - Light mode";
+      // document.title= "TextUtils - Light mode";
     }
   }
 
@@ -56,14 +57,13 @@ function App() {
         {/* /users --> component 1 */}
         {/* /users/home --> component 1 */}
           <Routes>   
-            <Route exact path="/about" element={<About />} />
-            <Route exact path="/" element={<TextForm heading="Enter the text to analyze below" mode={mode} showAlert={showAlert}/>} />
+            <Route exact path="/about" element={<About mode={mode}/>} />
+            <Route exact path="/" element={<TextForm heading="Try TextUtils - Word Counter, Character Counter, Remove extra spaces" mode={mode} showAlert={showAlert}/>} />
           </Routes>
+          {/* <TextForm heading="Enter the text below to analyze" mode={mode} showAlert={showAlert}/> */}
+           {/* <About /> */}
         </div>
       </Router>
-          {/* <TextForm heading="Enter the text below to analyze" mode={mode} showAlert={showAlert}/> */}
-            {/* <About /> */}
-      {/* </div> */}
     </>
   );
 }
